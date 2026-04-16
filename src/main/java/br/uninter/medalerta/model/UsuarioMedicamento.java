@@ -1,12 +1,18 @@
 package br.uninter.medalerta.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
 @Table(name = "UsuarioMedicamento")
+@Getter
+@Setter
+@NoArgsConstructor
 public class UsuarioMedicamento {
 
     @EmbeddedId
@@ -43,89 +49,6 @@ public class UsuarioMedicamento {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 10)
     private ConfirmacaoConsumo confirmacaoConsumo;
-
-    public UsuarioMedicamento() {
-    }
-
-    public UsuarioMedicamentoId getId() {
-        return id;
-    }
-
-    public void setId(UsuarioMedicamentoId id) {
-        this.id = id;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Medicamento getMedicamento() {
-        return medicamento;
-    }
-
-    public void setMedicamento(Medicamento medicamento) {
-        this.medicamento = medicamento;
-    }
-
-    public LocalTime getHorarioUso() {
-        return horarioUso;
-    }
-
-    public void setHorarioUso(LocalTime horarioUso) {
-        this.horarioUso = horarioUso;
-    }
-
-    public String getFrequenciaUso() {
-        return frequenciaUso;
-    }
-
-    public void setFrequenciaUso(String frequenciaUso) {
-        this.frequenciaUso = frequenciaUso;
-    }
-
-    public String getDosagem() {
-        return dosagem;
-    }
-
-    public void setDosagem(String dosagem) {
-        this.dosagem = dosagem;
-    }
-
-    public LocalDateTime getDataHorarioAlerta() {
-        return dataHorarioAlerta;
-    }
-
-    public void setDataHorarioAlerta(LocalDateTime dataHorarioAlerta) {
-        this.dataHorarioAlerta = dataHorarioAlerta;
-    }
-
-    public StatusAlerta getStatusAlerta() {
-        return statusAlerta;
-    }
-
-    public void setStatusAlerta(StatusAlerta statusAlerta) {
-        this.statusAlerta = statusAlerta;
-    }
-
-    public LocalDateTime getDataHorarioConsumo() {
-        return dataHorarioConsumo;
-    }
-
-    public void setDataHorarioConsumo(LocalDateTime dataHorarioConsumo) {
-        this.dataHorarioConsumo = dataHorarioConsumo;
-    }
-
-    public ConfirmacaoConsumo getConfirmacaoConsumo() {
-        return confirmacaoConsumo;
-    }
-
-    public void setConfirmacaoConsumo(ConfirmacaoConsumo confirmacaoConsumo) {
-        this.confirmacaoConsumo = confirmacaoConsumo;
-    }
 
     @Override
     public String toString() {
