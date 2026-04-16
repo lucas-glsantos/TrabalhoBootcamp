@@ -1,6 +1,7 @@
 package br.uninter.medalerta.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,25 +14,25 @@ public class Usuario {
     @Column(name = "idUsuario") 
     private Integer idUsuario; 
 
-    @NotBlank // ALTERADO ✅
-    @Size(max = 100) // // ALTERADO ✅
+    @NotBlank 
+    @Size(max = 100)
     @Column(nullable = false, length = 100) 
     private String nome;
 
-    @NotBlank // ALTERADO ✅
-    @Pattern(regexp = "\\d{10,11}") // ALTERADO ✅
+    @NotBlank 
+    @Pattern(regexp = "\\d{10,11}")  
     @Column(nullable = false, length = 20) 
     private String telefone;
 
-    @NotBlank  // ALTERADO ✅
-    @Email  // ALTERADO ✅
+    @NotBlank  
+    @Email  
     @Column(nullable = false, length = 100) 
     private String email;
 
     @Column(length = 100) 
     private String enderecoRua;
 
-    @Column // ALTERADO ✅
+    @Column 
     private Integer enderecoNumero; 
 
     @Column(length = 50) 
@@ -49,8 +50,8 @@ public class Usuario {
     @Column(length = 2) 
     private String enderecoEstado;
 
-    // RELACIONAMENTO (IMPORTANTE)
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true) // ALTERADO ✅
+    
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true) 
     private List<UsuarioMedicamento> usuarioMedicamentos = new ArrayList<>();
 
     public Usuario() { 
@@ -172,4 +173,5 @@ public String toString() {
             ", nome='" + nome + '\'' +
             ", email='" + email + '\'' +
             '}';
+}
 }
